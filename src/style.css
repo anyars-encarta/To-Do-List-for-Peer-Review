@@ -115,6 +115,14 @@ li {
   max-width: 100%;
 }
 
+.fa-refresh,
+.fa-plus,
+.fa-trash,
+.fas,
+.clear-button {
+  cursor: pointer;
+}
+
 .clear-button:hover {
   background-color: green;
   color: white;
@@ -142,14 +150,6 @@ li {
   text-align: center;
   font-size: 20px;
   display: none;
-}
-
-.fa-refresh,
-.fa-plus,
-.fa-trash,
-.fas,
-.clear-button {
-  cursor: pointer;
 }
 
 .fa-trash:hover {
