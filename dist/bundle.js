@@ -19,7 +19,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   storeItem: () => (/* binding */ storeItem)
 /* harmony export */ });
 // // Variable to get Tasks from local storage
-// const todo = JSON.parse(localStorage.getItem('items')) || [];
 
 // Function to save to local storage
 var storeItem = function storeItem(todo) {
@@ -45,9 +44,9 @@ var addItem = function addItem(todo, desc) {
 // Remove tasks
 var removeItem = function removeItem(todo, index) {
   todo.splice(index, 1);
-  for (var i = index; i < todo.length; i += 1) {
-    todo[i].index = i + 1;
-  }
+  todo.forEach(function (item) {
+    todo[item].index = item + 1;
+  });
   storeItem(todo);
 };
 
@@ -7957,6 +7956,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.body {
   padding: 0;
   box-sizing: border-box;
   background-color: #f4f3f4;
+  font-family: 'Roboto', sans-serif;
 }
 
 .container {
@@ -7974,7 +7974,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.body {
 #date-time {
   text-align: right;
   padding: 10px;
-  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   color: green;
   font-weight: bold;
@@ -7982,7 +7981,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.body {
 
 .header {
   display: flex;
-  font-family: 'Roboto', sans-serif;
   font-size: 25px;
   padding: 10px;
   font-weight: normal;
@@ -7992,7 +7990,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.body {
 
 .addtasks {
   font-style: italic;
-  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   border: none;
   outline: none;
@@ -8009,7 +8006,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.body {
 .todo-list {
   list-style-type: none;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
 }
 
 .item span {
@@ -8045,7 +8041,6 @@ ul {
 
 .task-detail {
   font-size: 20px;
-  font-family: 'Roboto', sans-serif;
   width: 100%;
 }
 
@@ -8074,7 +8069,6 @@ li {
 .clear-button:hover {
   background-color: green;
   color: white;
-  cursor: pointer;
 }
 
 .ellipsis-icon:hover + .delete-icon {
@@ -8086,15 +8080,10 @@ li {
   border: none;
 }
 
-.fas:hover {
-  cursor: pointer;
-}
-
 #container #date-time {
   display: flex;
   justify-content: right;
   padding: 10px;
-  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   color: green;
   font-weight: bold;
@@ -8102,19 +8091,19 @@ li {
 
 #message {
   text-align: center;
-  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   display: none;
 }
 
 .fa-refresh,
 .fa-plus,
-.fa-trash {
+.fa-trash,
+.fas,
+.clear-button {
   cursor: pointer;
 }
 
 .fa-trash:hover {
-  cursor: pointer;
   color: red;
 }
 
@@ -8126,7 +8115,7 @@ li {
   border: 1px solid red;
   box-shadow: 0 2px 4px rgba(133, 128, 128, 0.4);
 }
-`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAEA;EACE,mBAAmB;EACnB,UAAU;EACV,sBAAsB;EACtB,yBAAyB;AAC3B;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,UAAU;EACV,cAAc;EACd,sBAAsB;EACtB,8CAA8C;EAC9C,uBAAuB;EACvB,aAAa;EACb,6BAA6B;AAC/B;;AAEA;EACE,iBAAiB;EACjB,aAAa;EACb,iCAAiC;EACjC,eAAe;EACf,YAAY;EACZ,iBAAiB;AACnB;;AAEA;EACE,aAAa;EACb,iCAAiC;EACjC,eAAe;EACf,aAAa;EACb,mBAAmB;EACnB,6BAA6B;EAC7B,8BAA8B;AAChC;;AAEA;EACE,kBAAkB;EAClB,iCAAiC;EACjC,eAAe;EACf,YAAY;EACZ,aAAa;EACb,UAAU;AACZ;;AAEA;EACE,aAAa;EACb,aAAa;EACb,6BAA6B;EAC7B,8BAA8B;AAChC;;AAEA;EACE,qBAAqB;EACrB,UAAU;EACV,iCAAiC;AACnC;;AAEA;EACE,OAAO;EACP,WAAW;EACX,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,cAAc;AAChB;;AAEA;EACE,YAAY;EACZ,cAAc;EACd,kBAAkB;AACpB;;AAEA;EACE,kBAAkB;EAClB,6BAA6B;EAC7B,cAAc;AAChB;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,eAAe;EACf,iCAAiC;EACjC,WAAW;AACb;;AAEA;EACE,aAAa;EACb,qBAAqB;EACrB,6BAA6B;EAC7B,aAAa;EACb,mBAAmB;EACnB,oBAAoB;EACpB,SAAS;AACX;;AAEA;EACE,6BAA6B;AAC/B;;AAEA;EACE,YAAY;EACZ,iBAAiB;EACjB,oBAAoB;EACpB,eAAe;EACf,eAAe;AACjB;;AAEA;EACE,uBAAuB;EACvB,YAAY;EACZ,eAAe;AACjB;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,YAAY;AACd;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,aAAa;EACb,iCAAiC;EACjC,eAAe;EACf,YAAY;EACZ,iBAAiB;AACnB;;AAEA;EACE,kBAAkB;EAClB,iCAAiC;EACjC,eAAe;EACf,aAAa;AACf;;AAEA;;;EAGE,eAAe;AACjB;;AAEA;EACE,eAAe;EACf,UAAU;AACZ;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,qBAAqB;EACrB,8CAA8C;AAChD","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');\r\n\r\n.body {\r\n  margin: 100px 0 0 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n  background-color: #f4f3f4;\r\n}\r\n\r\n.container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  width: 60%;\r\n  margin: 0 auto;\r\n  border: 1px solid #ddd;\r\n  box-shadow: 0 2px 4px rgba(133, 128, 128, 0.4);\r\n  background-color: white;\r\n  padding: 10px;\r\n  border-bottom: 1px solid #ddd;\r\n}\r\n\r\n#date-time {\r\n  text-align: right;\r\n  padding: 10px;\r\n  font-family: 'Roboto', sans-serif;\r\n  font-size: 20px;\r\n  color: green;\r\n  font-weight: bold;\r\n}\r\n\r\n.header {\r\n  display: flex;\r\n  font-family: 'Roboto', sans-serif;\r\n  font-size: 25px;\r\n  padding: 10px;\r\n  font-weight: normal;\r\n  border-bottom: 1px solid #ddd;\r\n  justify-content: space-between;\r\n}\r\n\r\n.addtasks {\r\n  font-style: italic;\r\n  font-family: 'Roboto', sans-serif;\r\n  font-size: 20px;\r\n  border: none;\r\n  outline: none;\r\n  width: 90%;\r\n}\r\n\r\n.input-container {\r\n  display: flex;\r\n  padding: 10px;\r\n  border-bottom: 1px solid #ddd;\r\n  justify-content: space-between;\r\n}\r\n\r\n.todo-list {\r\n  list-style-type: none;\r\n  padding: 0;\r\n  font-family: 'Roboto', sans-serif;\r\n}\r\n\r\n.item span {\r\n  flex: 1;\r\n  width: 100%;\r\n  border: none;\r\n}\r\n\r\ninput[type=\"text\"] {\r\n  border: none;\r\n  font-size: 1em;\r\n}\r\n\r\ninput::placeholder {\r\n  border: none;\r\n  font-size: 1em;\r\n  font-style: italic;\r\n}\r\n\r\ninput[type=\"checkbox\"]:checked + span {\r\n  font-style: italic;\r\n  text-decoration: line-through;\r\n  color: #b9b9b9;\r\n}\r\n\r\nbutton {\r\n  border: none;\r\n}\r\n\r\nul {\r\n  list-style: none;\r\n}\r\n\r\n.task-detail {\r\n  font-size: 20px;\r\n  font-family: 'Roboto', sans-serif;\r\n  width: 100%;\r\n}\r\n\r\nli {\r\n  padding: 10px;\r\n  list-style-type: none;\r\n  border-bottom: 1px solid #ddd;\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: stretch;\r\n  gap: 10px;\r\n}\r\n\r\n.completed {\r\n  text-decoration: line-through;\r\n}\r\n\r\n.clear-button {\r\n  border: none;\r\n  padding-top: 15px;\r\n  padding-bottom: 15px;\r\n  font-size: 15px;\r\n  max-width: 100%;\r\n}\r\n\r\n.clear-button:hover {\r\n  background-color: green;\r\n  color: white;\r\n  cursor: pointer;\r\n}\r\n\r\n.ellipsis-icon:hover + .delete-icon {\r\n  display: inline;\r\n}\r\n\r\n.edit-input {\r\n  outline: none;\r\n  border: none;\r\n}\r\n\r\n.fas:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n#container #date-time {\r\n  display: flex;\r\n  justify-content: right;\r\n  padding: 10px;\r\n  font-family: 'Roboto', sans-serif;\r\n  font-size: 20px;\r\n  color: green;\r\n  font-weight: bold;\r\n}\r\n\r\n#message {\r\n  text-align: center;\r\n  font-family: 'Roboto', sans-serif;\r\n  font-size: 20px;\r\n  display: none;\r\n}\r\n\r\n.fa-refresh,\r\n.fa-plus,\r\n.fa-trash {\r\n  cursor: pointer;\r\n}\r\n\r\n.fa-trash:hover {\r\n  cursor: pointer;\r\n  color: red;\r\n}\r\n\r\n.fa-ellipsis-v {\r\n  cursor: move;\r\n}\r\n\r\n.focus:focus {\r\n  border: 1px solid red;\r\n  box-shadow: 0 2px 4px rgba(133, 128, 128, 0.4);\r\n}\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAEA;EACE,mBAAmB;EACnB,UAAU;EACV,sBAAsB;EACtB,yBAAyB;EACzB,iCAAiC;AACnC;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,UAAU;EACV,cAAc;EACd,sBAAsB;EACtB,8CAA8C;EAC9C,uBAAuB;EACvB,aAAa;EACb,6BAA6B;AAC/B;;AAEA;EACE,iBAAiB;EACjB,aAAa;EACb,eAAe;EACf,YAAY;EACZ,iBAAiB;AACnB;;AAEA;EACE,aAAa;EACb,eAAe;EACf,aAAa;EACb,mBAAmB;EACnB,6BAA6B;EAC7B,8BAA8B;AAChC;;AAEA;EACE,kBAAkB;EAClB,eAAe;EACf,YAAY;EACZ,aAAa;EACb,UAAU;AACZ;;AAEA;EACE,aAAa;EACb,aAAa;EACb,6BAA6B;EAC7B,8BAA8B;AAChC;;AAEA;EACE,qBAAqB;EACrB,UAAU;AACZ;;AAEA;EACE,OAAO;EACP,WAAW;EACX,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,cAAc;AAChB;;AAEA;EACE,YAAY;EACZ,cAAc;EACd,kBAAkB;AACpB;;AAEA;EACE,kBAAkB;EAClB,6BAA6B;EAC7B,cAAc;AAChB;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,eAAe;EACf,WAAW;AACb;;AAEA;EACE,aAAa;EACb,qBAAqB;EACrB,6BAA6B;EAC7B,aAAa;EACb,mBAAmB;EACnB,oBAAoB;EACpB,SAAS;AACX;;AAEA;EACE,6BAA6B;AAC/B;;AAEA;EACE,YAAY;EACZ,iBAAiB;EACjB,oBAAoB;EACpB,eAAe;EACf,eAAe;AACjB;;AAEA;EACE,uBAAuB;EACvB,YAAY;AACd;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,YAAY;AACd;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,aAAa;EACb,eAAe;EACf,YAAY;EACZ,iBAAiB;AACnB;;AAEA;EACE,kBAAkB;EAClB,eAAe;EACf,aAAa;AACf;;AAEA;;;;;EAKE,eAAe;AACjB;;AAEA;EACE,UAAU;AACZ;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,qBAAqB;EACrB,8CAA8C;AAChD","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');\r\n\r\n.body {\r\n  margin: 100px 0 0 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n  background-color: #f4f3f4;\r\n  font-family: 'Roboto', sans-serif;\r\n}\r\n\r\n.container {\r\n  display: flex;\r\n  flex-direction: column;\r\n  width: 60%;\r\n  margin: 0 auto;\r\n  border: 1px solid #ddd;\r\n  box-shadow: 0 2px 4px rgba(133, 128, 128, 0.4);\r\n  background-color: white;\r\n  padding: 10px;\r\n  border-bottom: 1px solid #ddd;\r\n}\r\n\r\n#date-time {\r\n  text-align: right;\r\n  padding: 10px;\r\n  font-size: 20px;\r\n  color: green;\r\n  font-weight: bold;\r\n}\r\n\r\n.header {\r\n  display: flex;\r\n  font-size: 25px;\r\n  padding: 10px;\r\n  font-weight: normal;\r\n  border-bottom: 1px solid #ddd;\r\n  justify-content: space-between;\r\n}\r\n\r\n.addtasks {\r\n  font-style: italic;\r\n  font-size: 20px;\r\n  border: none;\r\n  outline: none;\r\n  width: 90%;\r\n}\r\n\r\n.input-container {\r\n  display: flex;\r\n  padding: 10px;\r\n  border-bottom: 1px solid #ddd;\r\n  justify-content: space-between;\r\n}\r\n\r\n.todo-list {\r\n  list-style-type: none;\r\n  padding: 0;\r\n}\r\n\r\n.item span {\r\n  flex: 1;\r\n  width: 100%;\r\n  border: none;\r\n}\r\n\r\ninput[type=\"text\"] {\r\n  border: none;\r\n  font-size: 1em;\r\n}\r\n\r\ninput::placeholder {\r\n  border: none;\r\n  font-size: 1em;\r\n  font-style: italic;\r\n}\r\n\r\ninput[type=\"checkbox\"]:checked + span {\r\n  font-style: italic;\r\n  text-decoration: line-through;\r\n  color: #b9b9b9;\r\n}\r\n\r\nbutton {\r\n  border: none;\r\n}\r\n\r\nul {\r\n  list-style: none;\r\n}\r\n\r\n.task-detail {\r\n  font-size: 20px;\r\n  width: 100%;\r\n}\r\n\r\nli {\r\n  padding: 10px;\r\n  list-style-type: none;\r\n  border-bottom: 1px solid #ddd;\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: stretch;\r\n  gap: 10px;\r\n}\r\n\r\n.completed {\r\n  text-decoration: line-through;\r\n}\r\n\r\n.clear-button {\r\n  border: none;\r\n  padding-top: 15px;\r\n  padding-bottom: 15px;\r\n  font-size: 15px;\r\n  max-width: 100%;\r\n}\r\n\r\n.clear-button:hover {\r\n  background-color: green;\r\n  color: white;\r\n}\r\n\r\n.ellipsis-icon:hover + .delete-icon {\r\n  display: inline;\r\n}\r\n\r\n.edit-input {\r\n  outline: none;\r\n  border: none;\r\n}\r\n\r\n#container #date-time {\r\n  display: flex;\r\n  justify-content: right;\r\n  padding: 10px;\r\n  font-size: 20px;\r\n  color: green;\r\n  font-weight: bold;\r\n}\r\n\r\n#message {\r\n  text-align: center;\r\n  font-size: 20px;\r\n  display: none;\r\n}\r\n\r\n.fa-refresh,\r\n.fa-plus,\r\n.fa-trash,\r\n.fas,\r\n.clear-button {\r\n  cursor: pointer;\r\n}\r\n\r\n.fa-trash:hover {\r\n  color: red;\r\n}\r\n\r\n.fa-ellipsis-v {\r\n  cursor: move;\r\n}\r\n\r\n.focus:focus {\r\n  border: 1px solid red;\r\n  box-shadow: 0 2px 4px rgba(133, 128, 128, 0.4);\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

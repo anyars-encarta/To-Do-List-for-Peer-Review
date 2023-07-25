@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   background-color: #f4f3f4;
+  font-family: 'Roboto', sans-serif;
 }
 
 .container {
@@ -22,7 +23,6 @@
 #date-time {
   text-align: right;
   padding: 10px;
-  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   color: green;
   font-weight: bold;
@@ -30,7 +30,6 @@
 
 .header {
   display: flex;
-  font-family: 'Roboto', sans-serif;
   font-size: 25px;
   padding: 10px;
   font-weight: normal;
@@ -40,7 +39,6 @@
 
 .addtasks {
   font-style: italic;
-  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   border: none;
   outline: none;
@@ -57,7 +55,6 @@
 .todo-list {
   list-style-type: none;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
 }
 
 .item span {
@@ -93,7 +90,6 @@ ul {
 
 .task-detail {
   font-size: 20px;
-  font-family: 'Roboto', sans-serif;
   width: 100%;
 }
 
@@ -122,7 +118,6 @@ li {
 .clear-button:hover {
   background-color: green;
   color: white;
-  cursor: pointer;
 }
 
 .ellipsis-icon:hover + .delete-icon {
@@ -134,15 +129,10 @@ li {
   border: none;
 }
 
-.fas:hover {
-  cursor: pointer;
-}
-
 #container #date-time {
   display: flex;
   justify-content: right;
   padding: 10px;
-  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   color: green;
   font-weight: bold;
@@ -150,19 +140,19 @@ li {
 
 #message {
   text-align: center;
-  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   display: none;
 }
 
 .fa-refresh,
 .fa-plus,
-.fa-trash {
+.fa-trash,
+.fas,
+.clear-button {
   cursor: pointer;
 }
 
 .fa-trash:hover {
-  cursor: pointer;
   color: red;
 }
 
